@@ -5,6 +5,7 @@ let btns = ["yellow","red","purple","green"];
 let started = false;
 let level = 0;
 let h2 = document.querySelector("h2");
+let highScore = 0;
 
 // 1st Step -> Game was Started
 document.addEventListener("keypress",function (){
@@ -74,6 +75,10 @@ for(btn of allBtns){
 }
 
 function reset(){
+    if(level > highScore){
+        highScore = level;
+        document.querySelector("#highscore").innerText = `High Score : ${highScore}`;
+    }
     started = false;
     gameSeq = [];
     userSeq = [];
